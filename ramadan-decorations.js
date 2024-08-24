@@ -1,6 +1,5 @@
-// ramadan-decoration.js
-
 document.addEventListener('DOMContentLoaded', function() {
+    // Create the floating icons container
     const floatingIconsContainer = document.createElement('div');
     floatingIconsContainer.className = 'floating-wrapper';
 
@@ -20,8 +19,81 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.body.appendChild(floatingIconsContainer);
+
+    // Create and add the header with hanging items
+    const header = document.createElement('header');
+    header.className = 'header';
+
+    const headerContent = document.createElement('div');
+    headerContent.className = 'header-content';
+
+    const hangingWrapper = document.createElement('div');
+    hangingWrapper.className = 'hanging-wrapper';
+
+    const hangingItems = ['🌙', '🕌', '📜', '✨', '🕋'];
+
+    hangingItems.forEach(icon => {
+        const hangingItem = document.createElement('div');
+        hangingItem.className = 'hanging-item';
+
+        const hangingThread = document.createElement('div');
+        hangingThread.className = 'hanging-thread';
+
+        const hangingIcon = document.createElement('div');
+        hangingIcon.className = 'hanging-icon';
+        hangingIcon.innerText = icon;
+
+        hangingItem.appendChild(hangingThread);
+        hangingItem.appendChild(hangingIcon);
+        hangingWrapper.appendChild(hangingItem);
+    });
+
+    const staticHeaderIcons = document.createElement('div');
+    staticHeaderIcons.className = 'static-header-icons';
+
+    const staticHeaderIconLeft = document.createElement('div');
+    staticHeaderIconLeft.className = 'static-header-icon top-left';
+    staticHeaderIconLeft.innerText = '🌙';
+
+    const staticHeaderIconRight = document.createElement('div');
+    staticHeaderIconRight.className = 'static-header-icon top-right';
+    staticHeaderIconRight.innerText = '🕌';
+
+    staticHeaderIcons.appendChild(staticHeaderIconLeft);
+    staticHeaderIcons.appendChild(staticHeaderIconRight);
+
+    headerContent.appendChild(hangingWrapper);
+    headerContent.appendChild(staticHeaderIcons);
+    header.appendChild(headerContent);
+
+    document.body.appendChild(header);
+
+    // Create and add the footer with static icons
+    const footer = document.createElement('footer');
+    footer.className = 'footer';
+
+    const footerContent = document.createElement('div');
+    footerContent.className = 'footer-content';
+
+    const staticFooterIcons = [
+        { className: 'top-left', icon: '🕌' },
+        { className: 'top-right', icon: '🌙' },
+        { className: 'bottom-left', icon: '🕋' },
+        { className: 'bottom-right', icon: '📜' },
+    ];
+
+    staticFooterIcons.forEach(({ className, icon }) => {
+        const staticFooterIcon = document.createElement('div');
+        staticFooterIcon.className = `static-footer-icon ${className}`;
+        staticFooterIcon.innerText = icon;
+        footerContent.appendChild(staticFooterIcon);
+    });
+
+    footer.appendChild(footerContent);
+    document.body.appendChild(footer);
 });
 
+// Add styles dynamically
 const style = document.createElement('style');
 style.textContent = `
     body {
@@ -187,88 +259,6 @@ style.textContent = `
         background-color: transparent;
         position: absolute;
     }
-
-    .top-left {
-        top: 10px;
-        left: 10px;
-    }
-
-    .top-right {
-        top: 10px;
-        right: 10px;
-    }
 `;
 
 document.head.appendChild(style);
-
-// Create and add the header
-const header = document.createElement('header');
-header.className = 'header';
-
-const headerContent = document.createElement('div');
-headerContent.className = 'header-content';
-
-const hangingWrapper = document.createElement('div');
-hangingWrapper.className = 'hanging-wrapper';
-
-const hangingItems = ['🌙', '🕌', '📜', '✨', '🕋'];
-
-hangingItems.forEach(icon => {
-    const hangingItem = document.createElement('div');
-    hangingItem.className = 'hanging-item';
-
-    const hangingThread = document.createElement('div');
-    hangingThread.className = 'hanging-thread';
-
-    const hangingIcon = document.createElement('div');
-    hangingIcon.className = 'hanging-icon';
-    hangingIcon.innerText = icon;
-
-    hangingItem.appendChild(hangingThread);
-    hangingItem.appendChild(hangingIcon);
-    hangingWrapper.appendChild(hangingItem);
-});
-
-const staticHeaderIcons = document.createElement('div');
-staticHeaderIcons.className = 'static-header-icons';
-
-const staticHeaderIconLeft = document.createElement('div');
-staticHeaderIconLeft.className = 'static-header-icon top-left';
-staticHeaderIconLeft.innerText = '🌙';
-
-const staticHeaderIconRight = document.createElement('div');
-staticHeaderIconRight.className = 'static-header-icon top-right';
-staticHeaderIconRight.innerText = '🕌';
-
-staticHeaderIcons.appendChild(staticHeaderIconLeft);
-staticHeaderIcons.appendChild(staticHeaderIconRight);
-
-headerContent.appendChild(hangingWrapper);
-headerContent.appendChild(staticHeaderIcons);
-header.appendChild(headerContent);
-
-document.body.appendChild(header);
-
-// Create and add the footer
-const footer = document.createElement('footer');
-footer.className = 'footer';
-
-const footerContent = document.createElement('div');
-footerContent.className = 'footer-content';
-
-const staticFooterIcons = [
-    { className: 'top-left', icon: '🕌' },
-    { className: 'top-right', icon: '🌙' },
-    { className: 'bottom-left', icon: '🕋' },
-    { className: 'bottom-right', icon: '📜' },
-];
-
-staticFooterIcons.forEach(({ className, icon }) => {
-    const staticFooterIcon = document.createElement('div');
-    staticFooterIcon.className = `static-footer-icon ${className}`;
-    staticFooterIcon.innerText = icon;
-    footerContent.appendChild(staticFooterIcon);
-});
-
-footer.appendChild(footerContent);
-document.body.appendChild(footer);
