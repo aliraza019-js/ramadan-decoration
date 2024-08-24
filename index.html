@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Decorations</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+        }
+        
+        /* Header styling */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .header-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hanging-wrapper {
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        .hanging-item {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hanging-thread {
+            position: absolute;
+            width: 2px;
+            height: 150px;
+            background-color: #000000;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            animation: swing-thread 4s ease-in-out infinite;
+        }
+
+        .hanging-icon {
+            font-size: 48px;
+            z-index: 1;
+            animation: swing-icon 4s ease-in-out infinite;
+        }
+
+        @keyframes swing-thread {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(30px); }
+        }
+
+        @keyframes swing-icon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(30px); }
+        }
+
+        /* Floating item styling */
+        .floating-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-item {
+            font-size: 48px;
+            position: absolute;
+            animation: floatDown 30s linear infinite;
+            transform: translate(-50%, -50%);
+        }
+
+        .floating-item.large {
+            font-size: 72px;
+        }
+
+        @keyframes floatDown {
+            0% { transform: translate(-50%, -50%) translateY(-100vh); }
+            100% { transform: translate(-50%, -50%) translateY(100vh); }
+        }
+
+        /* Footer styling */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .static-footer-icon {
+            font-size: 36px;
+            color: #333;
+            padding: 10px;
+            background-color: transparent;
+            position: absolute;
+        }
+
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .static-header-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .static-header-icon {
+            font-size: 36px;
+            color: #333;
+            padding: 10px;
+            background-color: transparent;
+            position: absolute;
+        }
+
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="hanging-wrapper">
+                <div class="hanging-item">
+                    <div class="hanging-thread"></div>
+                    <div class="hanging-icon">🌙</div>
+                </div>
+                <div class="hanging-item">
+                    <div class="hanging-thread"></div>
+                    <div class="hanging-icon">🕌</div>
+                </div>
+                <div class="hanging-item">
+                    <div class="hanging-thread"></div>
+                    <div class="hanging-icon">📜</div>
+                </div>
+                <div class="hanging-item">
+                    <div class="hanging-thread"></div>
+                    <div class="hanging-icon">✨</div>
+                </div>
+                <div class="hanging-item">
+                    <div class="hanging-thread"></div>
+                    <div class="hanging-icon">🕋</div>
+                </div>
+            </div>
+            <div class="static-header-icons">
+                <div class="static-header-icon top-left">🌙</div>
+                <div class="static-header-icon top-right">🕌</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating icons -->
+    <div class="floating-wrapper">
+        <div class="floating-item">🌙</div>
+        <div class="floating-item">🕌</div>
+        <div class="floating-item">📜</div>
+        <div class="floating-item">✨</div>
+        <div class="floating-item">🕋</div>
+        <div class="floating-item large">🌟</div>
+    </div>
+
+    <!-- Footer with static icons -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="static-footer-icon top-left">🕌</div>
+            <div class="static-footer-icon top-right">🌙</div>
+            <div class="static-footer-icon bottom-left">🕋</div>
+            <div class="static-footer-icon bottom-right">📜</div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingIconsContainer = document.querySelector('.floating-wrapper');
+            const icons = ['🌙', '🕌', '🕋', '✨', '🌴', '📖'];
+            const numIcons = 7;
+
+            for (let i = 0; i < numIcons; i++) {
+                const iconElement = document.createElement('div');
+                iconElement.className = 'floating-item';
+                iconElement.innerText = icons[Math.floor(Math.random() * icons.length)];
+                
+                iconElement.style.left = Math.random() * 100 + 'vw';
+                iconElement.style.top = Math.random() * 100 + 'vh';
+                iconElement.style.animationDuration = Math.random() * 10 + 10 + 's';
+
+                floatingIconsContainer.appendChild(iconElement);
+            }
+        });
+    </script>
+</body>
+</html>
