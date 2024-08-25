@@ -1,19 +1,24 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Create the floating icons container
     const floatingIconsContainer = document.createElement('div');
     floatingIconsContainer.className = 'floating-wrapper';
 
-    const icons = ['🌙', '🕌', '🕋', '✨', '🌴', '📖'];
-    const numIcons = 7;
+    const numIcons = 7; // Number of floating icons (moons)
 
     for (let i = 0; i < numIcons; i++) {
         const iconElement = document.createElement('div');
         iconElement.className = 'floating-item';
-        iconElement.innerText = icons[Math.floor(Math.random() * icons.length)];
-        
+        iconElement.innerText = '🌙'; // Only moon icons
+
+        // Randomize position and animation duration
         iconElement.style.left = Math.random() * 100 + 'vw';
         iconElement.style.top = Math.random() * 100 + 'vh';
         iconElement.style.animationDuration = Math.random() * 10 + 10 + 's';
+
+        // Add click event to remove the icon
+        iconElement.addEventListener('click', function () {
+            iconElement.remove();
+        });
 
         floatingIconsContainer.appendChild(iconElement);
     }
@@ -42,6 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const hangingIcon = document.createElement('div');
         hangingIcon.className = 'hanging-icon';
         hangingIcon.innerText = icon;
+
+        // Add click event to remove the icon
+        hangingIcon.addEventListener('click', function () {
+            hangingItem.remove();
+        });
 
         hangingItem.appendChild(hangingThread);
         hangingItem.appendChild(hangingIcon);
@@ -86,6 +96,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const staticFooterIcon = document.createElement('div');
         staticFooterIcon.className = `static-footer-icon ${className}`;
         staticFooterIcon.innerText = icon;
+
+        // Add click event to remove the icon
+        staticFooterIcon.addEventListener('click', function () {
+            staticFooterIcon.remove();
+        });
+
         footerContent.appendChild(staticFooterIcon);
     });
 
@@ -183,6 +199,7 @@ style.textContent = `
         position: absolute;
         animation: floatDown 30s linear infinite;
         transform: translate(-50%, -50%);
+        cursor: pointer;
     }
 
     .floating-item.large {
@@ -222,6 +239,7 @@ style.textContent = `
         padding: 10px;
         background-color: transparent;
         position: absolute;
+        cursor: pointer;
     }
 
     .top-left {
@@ -258,6 +276,7 @@ style.textContent = `
         padding: 10px;
         background-color: transparent;
         position: absolute;
+        cursor: pointer;
     }
 `;
 
