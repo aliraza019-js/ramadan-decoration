@@ -154,6 +154,7 @@ style.textContent = `
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
     }
 
     .hanging-thread {
